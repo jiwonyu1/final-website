@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/93c9a81c4d.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@1&family=Gasoek+One&family=Spline+Sans+Mono:wght@300&display=swap" rel="stylesheet">
+
+  <title>Weather App</title>
+  <style>
+    body {
+      font-family: 'Spline Sans Mono', monospace;
+      font-size: 12px;
+      text-align: center;
+      background-color: black;
+      color: rgb(255, 0, 217);
+      margin: 0;
+    }
+
+    #weather-container {
+      margin-top: 50px;
+    }
+
+    .weather {
+      font-family: 'Changa One', sans-serif;
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    #city,
+    #get-weather-btn {
+      font-family: 'Spline Sans Mono', monospace;
+      font-size: 12px;
+      padding: 8px;
+      border: none;
+      background-color: rgb(255, 0, 217);
+      color: black;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    #city::placeholder {
+      color: rgb(255, 0, 217);
+    }
+
+    #get-weather-btn:hover {
+      background-color: black;
+      color: rgb(255, 0, 217);
+    }
+
+    .back-to-home {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white; /* Set default icon color to white */
+    transition: color 0.3s ease; /* Add transition for smooth color change */
+}
+
+.back-to-home:hover {
+    color: rgb(255, 0, 200); /* Change icon color to pink on hover */
+}
+  </style>
+</head>
+<body>
+    <a href="./index.html" class="back-to-home"><i class="fas fa-home"></i></a>
+  <h1 class="weather">Whats Da Weather?</h1>
+
+  <div>
+    <label for="city">Enter city:</label>
+    <input type="text" id="city" placeholder="City">
+    <button id="get-weather-btn" onclick="getWeather()">Get Weather</button>
+  </div>
+
+  <div id="weather-container">
+    <h2 id="city-name"></h2>
+    <p id="temperature"></p>
+    <p id="description"></p>
+  </div>
+
+  <script>
+    function getWeather() {
+      const apiKey = 'c099f99e4da0844445d737efc374f3f7';
+      const city = document.getElementById("city").value;
+
+      if (city.trim() === "") {
+        alert("Please enter a city name.");
+        return;
+      }
+
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=metric`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.cod && data.cod !== 200) {
+            alert(`Error: ${data.message}`);
+          } else {
+            displayWeather(data);
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching weather data:", error);
+        });
+    }
+
+    function displayWeather(data) {
+      const cityNameElement = document.getElementById("city-name");
+      const temperatureElement = document.getElementById("temperature");
+      const descriptionElement = document.getElementById("description");
+
+      cityNameElement.textContent = `Weather in ${data.name}, ${data.sys.country}`;
+      temperatureElement.textContent = `Temperature: ${data.main.temp}°C`;
+      descriptionElement.textContent = `Description: ${data.weather[0].description}`;
+    }
+  </script>
+
+</body>
+</html>

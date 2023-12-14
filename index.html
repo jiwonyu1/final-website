@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/93c9a81c4d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@1&family=Gasoek+One&family=Spline+Sans+Mono:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+
+<title>jiwon website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: 'Spline Sans Mono', monospace;
+    color: white;
+  margin: 0px;
+  padding: 0px; /* Remove default padding */
+  overflow: hidden;
+            background-color: transparent; 
+ 
+  /* background-repeat: ; Do not repeat the background image */
+}
+
+canvas {
+    position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1; 
+}
+.name {
+    font-family: 'Changa One', sans-serif;
+    font-size: 45px;
+}
+
+.menu{
+    font-family: 'Changa One', sans-serif;
+  
+}
+
+/* Column container */
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+ margin: 0; 
+
+}
+
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  flex: 20%;
+  /* background-color: rgba(242, 255, 240, 0.5); */
+  padding: 10px;
+
+}
+
+.short {
+    text-decoration: none;
+  color: rgb(255, 255, 255);
+ 
+}
+
+
+.menu a {
+    text-decoration: none;
+  color: rgb(255, 255, 255);
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: rgb(253, 0, 236); /* Change link color on hover */
+}
+
+/* Main column */
+.main {
+    display: flex;
+    flex: 80%;
+    justify-content: flex-end;
+    background-color: none;
+  padding: 0px;
+}
+.main h2,
+.main h5,
+.main p {
+  background: none; /* Remove the background */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Add these CSS rules to change the color of the icons on hover with a transition effect */
+.instagram,
+.spotify,
+.youtube {
+  transition: color 0.3s ease; /* Add transition for smooth color change */
+}
+
+.instagram:hover {
+  color: yellow;
+}
+
+.spotify:hover {
+  color: green;
+}
+
+.youtube:hover {
+  color: red;
+}
+
+
+
+/* Footer */
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(132, 130, 130);
+   color: rgb(255, 255, 255);
+   text-align: center;
+   line-height: 0px;
+   overflow: hidden;
+   font-size: 10px;
+}
+
+.footer p {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollText 10s linear infinite;
+}
+
+@keyframes scrollText {
+  from {
+    transform: translateX(100%); /* Move the text tow the right */
+  }
+  to {
+    transform: translateX(-200%); /* Move the text to the left */
+  }
+}
+
+.font1 h1,
+.font1 {
+    margin-left: 2px;
+    margin-top: 0px;
+    margin-bottom: 3px; 
+    display: flex;
+  flex-direction: column;
+ 
+ 
+}
+
+.icon-container {
+    display: flex;
+    align-items: center; /* Align icons vertically centered */
+
+}
+
+.icon-container i {
+    margin-right: 5px; /* Add some space between icons if needed */
+    color:rgb(119, 0, 178);
+}
+
+
+
+
+
+@media screen and (max-width: 700px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .main img {
+    height: auto; /* Make the image responsive */
+    max-width: 100%;
+  }
+
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+/* @media screen and (max-width: 700px) {
+  .row, .navbar {   
+    flex-direction: column;
+  } */
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="row">
+  <div class="side">
+  <div class="font1">
+    <h1 class="name"  style="color:rgb(255, 0, 195);">JIWON   YU</h1>
+   
+    <span class="icon-container">
+        <a href="https://www.instagram.com/jiji1yu/" class="instagram">
+          <i class="fab fa-instagram fa-2x"></i>
+        </a>
+        <a href="https://www.youtube.com/watch?v=Vz7vBvnvRQ4&list=LL&index=199" class="youtube">
+          <i class="fas fa-hippo fa-2x"></i>
+        </a>
+        <a href="https://open.spotify.com/user/12173815841" class="spotify">
+          <i class="fab fa-spotify fa-2x"></i>
+        </a>
+      </span>
+      
+      <a href="#" style="text-decoration: none;"><h1 class= "short" style="font-size:10px"> I make art, and I like chihuahuas</h1>
+  <div class="menu">
+    <h1 style="font-size:35px"><a href="./projects.html">PROJECTS</a></h1>
+   <h1 style="font-size:35px"><a href="./about.html">ABOUT</a></h1>
+   <h1 style="font-size:35px"><a href="./chat.html">CHIT CHAT</a></h1>
+   <h1 style="font-size:35px"><a href="./weather.html">WEATHER?</a></h1>
+ 
+      </div>
+    </div>
+  
+  </div>
+
+
+
+<!-- Footer -->
+<div class="footer">
+  <p>thought of 12/13/2023, 1:33AM: chihuahuas rock!!!!!</p>
+</div>
+
+
+
+<script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Create a puffed star shape with rounded edges
+    const starShape = new THREE.Shape();
+    starShape.moveTo(0, 0.5);
+    starShape.lineTo(0.15, 0.15);
+    starShape.lineTo(0.5, 0);
+    starShape.lineTo(0.15, -0.15);
+    starShape.lineTo(0, -0.5);
+    starShape.lineTo(-0.15, -0.15);
+    starShape.lineTo(-0.5, 0);
+    starShape.lineTo(-0.15, 0.15);
+    starShape.lineTo(0, 0.5);
+
+    const extrudeSettings = { depth: 0.2, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 0.1, bevelThickness: 0.1 };
+    const starGeometry = new THREE.ExtrudeGeometry(starShape, extrudeSettings);
+
+    // Load a furry texture (you can replace this with your own furry texture)
+    const textureLoader = new THREE.TextureLoader();
+    const furTexture = textureLoader.load('met.jpg'); // Adjust the path to your texture
+
+    const material = new THREE.MeshBasicMaterial({ map: furTexture });
+    const star = new THREE.Mesh(starGeometry, material);
+    scene.add(star);
+
+    camera.position.z = 5;
+
+    const animate = () => {
+        requestAnimationFrame(animate);
+        star.rotation.x += 0.005;
+        star.rotation.y += 0.005;
+        renderer.render(scene, camera);
+    };
+
+    window.addEventListener('resize', () => {
+        const newWidth = window.innerWidth;
+        const newHeight = window.innerHeight;
+
+        camera.aspect = newWidth / newHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(newWidth, newHeight);
+    });
+
+    animate();
+</script>
+
+</body>
+</html>
+
+
