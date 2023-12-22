@@ -102,7 +102,17 @@
     border-radius: 8px;
     pointer-events: none;
 }
+@media screen and (max-width: 600px) {
+        .gallery {
+            flex-direction: column; /* Stack flex items vertically */
+            align-items: center; /* Center align the flex items */
+        }
 
+        .project {
+            flex: 0 0 100%; /* Make project containers full width */
+            margin-bottom: 20px; /* Keep the margin for spacing */
+        }
+    }
 
 
     </style>

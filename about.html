@@ -12,6 +12,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        font-size: 5px; /* Adjust the font size as needed */
+    }
+
+    .left-section,
+    .profile-picture,
+    .right-section {
+        flex: 0 0 100%; /* Take full width */
+        text-align: center; /* Center the text for smaller screens */
+        padding: 10px 0; /* Add some padding at the top and bottom */
+    }
+
+    .left-section {
+        padding-right: 0;
+    }
+
+    .right-section {
+        padding-left: 0;
+    }
+
+    .profile-picture {
+        height: auto;
+        max-width: 150px; /* Adjust the profile picture size as needed */
+        margin: 10px auto; /* Add margin to separate from sections */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        font-size: 3px; /* Further adjust the font size for even smaller screens */
+    }
+}
+
+/* Remove the overflow:hidden from body if it causes issues */
+body {
+    overflow: auto;
+}
+
         * {
             box-sizing: border-box;
         }
@@ -58,25 +100,25 @@
         
 @media screen and (max-width: 768px) {
     .profile-picture {
-        max-width: 150px; /* Adjust the maximum width for smaller screens */
+        max-width: 150px; 
     }
 
     .container {
-        font-size: 4px; /* Adjust the font size for smaller screens */
+        font-size: 4px; 
     }
 }
 
 @media screen and (max-width: 576px) {
     .profile-picture {
-        max-width: 150px; /* Adjust the maximum width for even smaller screens */
+        max-width: 150px; 
     }
 
     .container {
-        font-size: 3px; /* Adjust the font size for even smaller screens */
+        font-size: 3px; 
     }
 }
 
-        /* Add any additional styling to match your website's aesthetics */
+    
 
         .footer {
             position: fixed;
@@ -121,12 +163,12 @@
     left: 10px;
     font-size: 24px;
     cursor: pointer;
-    color: white; /* Set default icon color to white */
-    transition: color 0.3s ease; /* Add transition for smooth color change */
+    color: white;
+    transition: color 0.3s ease; 
 }
 
 .back-to-home:hover {
-    color: rgb(255, 0, 200); /* Change icon color to pink on hover */
+    color: rgb(255, 0, 200); 
 }
     </style>
 </head>
